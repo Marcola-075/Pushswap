@@ -35,5 +35,9 @@ void rra(number **lista);
 void rrb(number **listb);
 void rrr(number **lista, number **listb);
 int check_order(int ac, number **lista);
+int check_ac(int ac);
+int check_str(char *str);
+int check_tab(char **tab);
+void push_swap(number **lista, number **listb);
 
 #endif
