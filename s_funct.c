@@ -17,7 +17,7 @@ void sa(number **lista)
     *lista = (*lista)->next;
     tmp_one->next = (*lista)->next;
     (*lista)->next = tmp_one;
-    my_putstr("sa");
+    my_putstr("sa ");
 }
 
 void sb(number **listb)

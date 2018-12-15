@@ -13,7 +13,6 @@ struct number
 {
     int nbr;
     number *next;
-    number *prev;
 };
 
 struct number *create_list();
@@ -27,6 +26,7 @@ void sa(number **lista);
 void sb(number **listb);
 void sc(number **lista, number **listb);
 void pa(number **lista, number **listb);
+void pa_two(number **lista, number **listb);
 void pb(number **lista, number **listb);
 void ra(number **lista);
 void rb(number **listb);
@@ -34,5 +34,6 @@ void rr(number **lista, number **listb);
 void rra(number **lista);
 void rrb(number **listb);
 void rrr(number **lista, number **listb);
+int check_order(int ac, number **lista);
 
 #endif

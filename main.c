@@ -39,18 +39,15 @@ void push_swap(number **lista, number **listb)
     while ((*lista)->next != NULL) {
         if ((*lista)->nbr > (*lista)->next->nbr) {
             sa(lista);
-            my_putstr(" ");
             pa(lista, listb);
         }
         else {
             pb(lista, listb);
         }
     }
-    while ((*listb)->next != NULL) {
+    while ((*listb)->next != NULL)
         pa(lista, listb);
-        my_putstr(" ");
-    }
-    pa(lista, listb);
+    pa_two(lista, listb);
 }
 
 int main(int ac, char **av)
@@ -59,13 +56,17 @@ int main(int ac, char **av)
     number *listb = create_list();
     int i = 1;
 
+    if (ac < 3)
+        return (0);
     if (check_tab(av) == 84)
         return (84);
-    else
-        while (av[i] != NULL) {
-            put_in_end_list(&lista, my_getnbr(av[i]));
-            i = i + 1;
-        }
+    while (av[i] != NULL) {
+        put_in_end_list(&lista, my_getnbr(av[i]));
+        i = i + 1;
+    }
+    if (check_order(ac, &lista) == 1)
+        return (0);
     push_swap(&lista, &listb);
     my_putstr("\n");
+    return (0);
 }

@@ -10,6 +10,7 @@ SRC	=	manage_lklist.c	\
 		p_funct.c	\
 		r_funct.c	\
 		rr_funct.c	\
+		check_order.c	\
 		main.c
 
 OBJ	=	$(SRC:.c=.o)
