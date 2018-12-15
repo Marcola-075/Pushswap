@@ -15,7 +15,7 @@ SRC	=	manage_lklist.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
-NAME	=	my_pushswap
+NAME	=	push_swap
 
 CFLAGS	=	-I ./include
 
