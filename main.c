@@ -13,9 +13,9 @@ int check_str(char *str)
     int i = 0;
 
     while (str[i] != '\0') {
-        if (str[i] < '0' || str[i] > '9')
+        if (str[i] != '-' && str[i] < '0' || str[i] > '9')
             return (84);
-	i = i + 1;
+        i = i + 1;
     }
     return (0);
 }
@@ -23,8 +23,8 @@ int check_str(char *str)
 int check_tab(char **tab)
 {
     int i = 1;
-    
-    while(tab[i] != NULL) {
+
+    while (tab[i] != NULL) {
         if (check_str(tab[i]) == 84)
             return (84);
         i = i + 1;
@@ -32,22 +32,40 @@ int check_tab(char **tab)
     return (0);
 }
 
+void push_swap(number **lista, number **listb)
+{
+    number *tmp_one = *lista;
+
+    while ((*lista)->next != NULL) {
+        if ((*lista)->nbr > (*lista)->next->nbr) {
+            sa(lista);
+            my_putstr(" ");
+            pa(lista, listb);
+        }
+        else {
+            pb(lista, listb);
+        }
+    }
+    while ((*listb)->next != NULL) {
+        pa(lista, listb);
+        my_putstr(" ");
+    }
+    pa(lista, listb);
+}
+
 int main(int ac, char **av)
 {
-    list_nb *lista = create_list();
-    list_nb *listb = create_list();
+    number *lista = create_list();
+    number *listb = create_list();
     int i = 1;
 
-    //put_in_end_list(listb, 12);
-    //put_in_end_list(listb, 13);
-
-    if(check_tab(av) == 84)
+    if (check_tab(av) == 84)
         return (84);
     else
         while (av[i] != NULL) {
-            put_in_end_list(lista, my_getnbr(av[i]));
+            put_in_end_list(&lista, my_getnbr(av[i]));
             i = i + 1;
         }
-    rrb(lista);
-    disp_list(lista);
+    push_swap(&lista, &listb);
+    my_putstr("\n");
 }

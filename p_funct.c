@@ -9,22 +9,38 @@
 #include <stddef.h>
 #include "my.h"
 
-void pa(list_nb *lista, list_nb *listb)
+void pa(number **lista, number **listb)
 {
-    int tmp;
-    number *tmp_one = listb->first_nb;
+    number *tmp_one = *listb;
 
-    listb->first_nb = listb->first_nb->next;
-    tmp_one->next = lista->first_nb;
-    lista->first_nb = tmp_one;    
+    if (*lista != NULL && *listb != NULL) {
+        put_in_list(lista, (*listb)->nbr);
+        *listb = (*listb)->next;
+    }
+    else if (*listb == NULL)
+        return;
+    else {
+        *listb = (*listb)->next;
+        tmp_one->next = *lista;
+        *lista = tmp_one;
+    }
+    my_putstr("pa");
 }
 
-void pb(list_nb *lista, list_nb *listb)
+void pb(number **listb, number **lista)
 {
-    int	tmp;
-    number *tmp_one = lista->first_nb;
+    number *tmp_one = *listb;
 
-    lista->first_nb = lista->first_nb->next;
-    tmp_one->next = listb->first_nb;
-    listb->first_nb = tmp_one;
+    if (*lista != NULL && *listb != NULL) {
+        put_in_list(lista, (*listb)->nbr);
+        *listb = (*listb)->next;
+    }
+    else if (*listb == NULL)
+        return;
+    else {
+        *listb = (*listb)->next;
+        tmp_one->next = *lista;
+        *lista = tmp_one;
+    }
+    my_putstr("pb ");
 }

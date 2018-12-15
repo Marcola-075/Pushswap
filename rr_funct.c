@@ -8,33 +8,33 @@
 #include <stddef.h>
 #include "my.h"
 
-void rra(list_nb *lista)
+void rra(number **lista)
 {
-    number *tmp_last = lista->first_nb;
-    number *tmp_before_last = lista->first_nb;
+    number *tmp_last = *lista;
+    number *tmp_before_last = *lista;
 
     while (tmp_before_last->next->next != NULL)
         tmp_before_last = tmp_before_last->next;
     tmp_last = tmp_before_last->next;
     tmp_before_last->next = NULL;
-    tmp_last->next = lista->first_nb;
-    lista->first_nb = tmp_last;
+    tmp_last->next = *lista;
+    *lista = tmp_last;
 }
 
-void rrb(list_nb *listb)
+void rrb(number **listb)
 {
-    number *tmp_last = listb->first_nb;
-    number *tmp_before_last = listb->first_nb;
+    number *tmp_last = *listb;
+    number *tmp_before_last = *listb;
 
     while (tmp_before_last->next->next != NULL)
         tmp_before_last = tmp_before_last->next;
     tmp_last = tmp_before_last->next;
     tmp_before_last->next = NULL;
-    tmp_last->next = listb->first_nb;
-    listb->first_nb = tmp_last;
+    tmp_last->next = *listb;
+    *listb = tmp_last;
 }
 
-void rrr(list_nb *lista, list_nb *listb)
+void rrr(number **lista, number **listb)
 {
     rra(lista);
     rrb(listb);

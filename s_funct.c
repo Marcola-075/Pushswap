@@ -5,33 +5,36 @@
 ** s_funct
 */
 
+#include <stddef.h>
 #include "my.h"
 
-void sa(list_nb *lista)
+void sa(number **lista)
 {
-    int tmp;
-    number *tmp_one = lista->first_nb;
+    number *tmp_one = *lista;
 
-    tmp = tmp_one->nbr;
-    tmp_one->nbr = tmp_one->next->nbr;
-    tmp_one->next->nbr = tmp;
-    lista->first_nb = tmp_one;
-    
+    if (tmp_one == NULL || tmp_one->next == NULL)
+        return;
+    *lista = (*lista)->next;
+    tmp_one->next = (*lista)->next;
+    (*lista)->next = tmp_one;
+    my_putstr("sa");
 }
 
-void sb(list_nb *listb)
+void sb(number **listb)
 {
-    int	tmp;
-    number *tmp_one = listb->first_nb;
+    number *tmp_one = *listb;
 
-    tmp = tmp_one->nbr;	
-    tmp_one->nbr = tmp_one->next->nbr;
-    tmp_one->next->nbr = tmp;
-    listb->first_nb = tmp_one;
+    if (tmp_one == NULL || tmp_one->next == NULL)
+        return;
+    *listb = (*listb)->next;
+    tmp_one->next = (*listb)->next;
+    (*listb)->next = tmp_one;
+    my_putstr("sb");
 }
 
-void sc(list_nb *lista, list_nb *listb)
+void sc(number **lista, number **listb)
 {
     sa(lista);
     sb(listb);
+    my_putstr("sc");
 }
