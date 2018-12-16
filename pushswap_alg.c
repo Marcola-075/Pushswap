@@ -25,3 +25,9 @@ void push_swap(number **lista, number **listb)
         pa(lista, listb);
     pa_two(lista, listb);
 }
+
+void first_swap(number **lista)
+{
+    if ((*lista)->nbr > (*lista)->next->nbr)
+        sa(lista);
+}

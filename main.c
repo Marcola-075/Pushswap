@@ -24,6 +24,7 @@ int main(int ac, char **av)
         put_in_end_list(&lista, my_getnbr(av[i]));
         i = i + 1;
     }
+    first_swap(&lista);
     if (check_order(ac, &lista) == 1)
         return (0);
     push_swap(&lista, &listb);

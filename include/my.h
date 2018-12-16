@@ -39,5 +39,6 @@ int check_ac(int ac);
 int check_str(char *str);
 int check_tab(char **tab);
 void push_swap(number **lista, number **listb);
+void first_swap(number **lista);
 
 #endif
