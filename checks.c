@@ -14,7 +14,7 @@ int check_order(int ac, number **lista)
     int i = 1;
     int a = ac - 1;
 
-    while(tmp_one->next != NULL && tmp_one->nbr < tmp_one->next->nbr) {
+    while (tmp_one->next != NULL && tmp_one->nbr < tmp_one->next->nbr) {
         tmp_one = tmp_one->next;
         i = i + 1;
     }

@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include "my.h"
 
-struct number *create_list()
+struct number *create_list(void)
 {
     number *list = NULL;
 

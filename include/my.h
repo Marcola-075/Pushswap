@@ -15,7 +15,7 @@ struct number
     number *next;
 };
 
-struct number *create_list();
+struct number *create_list(void);
 void put_in_list(number **list, int data);
 void disp_list(number *list);
 void put_in_end_list(number **list, int data);

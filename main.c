@@ -16,6 +16,8 @@ int main(int ac, char **av)
 
     if (check_ac(ac) == 1)
         return (0);
+    if (ac == 1)
+        return (84);
     if (check_tab(av) == 84)
         return (84);
     while (av[i] != NULL) {
